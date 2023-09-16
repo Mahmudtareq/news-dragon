@@ -1,0 +1,36 @@
+/* YourComponent.css */
+.background-container {
+  background-image: url('../../../assets/bg.png');
+  background-size: cover; 
+  background-position: center; 
+  display: flex;
+  height: 450px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+}
+.text-content {
+  padding: 20px;
+  border-radius: 10px;
+  color: aliceblue;
+}
+.text-content .header-text{
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 45px;
+    
+}
+.header-text .text-para{
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+}

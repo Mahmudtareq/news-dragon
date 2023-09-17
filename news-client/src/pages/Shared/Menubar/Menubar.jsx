@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Menubar = () => {
   return (
@@ -9,7 +10,11 @@ const Menubar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto">
-            <Nav.Link href="#features">Home</Nav.Link>
+            <Nav.Link>
+              <Link to="/" className="text-decoration-none">
+                Home
+              </Link>
+            </Nav.Link>
             <Nav.Link href="#pricing">About</Nav.Link>
             <Nav.Link href="#pricing">Career</Nav.Link>
           </Nav>

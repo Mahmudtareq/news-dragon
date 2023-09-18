@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./LeftSidebar.css";
+import SportsNews from "../SportsNews/SportsNews";
 
 const LeftSidebar = () => {
   const [categories, setCategories] = useState([]);
@@ -24,6 +25,7 @@ const LeftSidebar = () => {
           </p>
         ))}
       </div>
+      <SportsNews />
     </Container>
   );
 };

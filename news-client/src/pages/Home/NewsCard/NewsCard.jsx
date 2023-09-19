@@ -13,7 +13,7 @@ const NewsCard = ({ newsItem }) => {
     newsItem;
   console.log(newsItem);
   return (
-    <Card className="mb-5 mt-5">
+    <Card className="mb-5 mt-4">
       <Card.Header className="d-flex align-items-center justify-content-between">
         <div className="d-flex align-items-center">
           <Image src={author?.img} width={42} height={42} roundedCircle />

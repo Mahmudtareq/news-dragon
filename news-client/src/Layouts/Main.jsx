@@ -6,11 +6,12 @@ import { Col, Container, Row } from "react-bootstrap";
 import LeftSidebar from "../pages/Shared/LeftSidebar/LeftSidebar";
 import RightSidebar from "../pages/Shared/RightSidebar/RightSidebar";
 import { Outlet } from "react-router-dom";
+import TopHeader from "../pages/Shared/TopHeader/TopHeader";
 
 const Main = () => {
   return (
     <div>
-      <Header />
+      <TopHeader />
       <Container>
         <Row>
           <Col xs="12" md="3" lg="3">

@@ -5,7 +5,6 @@ import moment from "moment/moment";
 import { Button, Container } from "react-bootstrap";
 import Marquee from "react-fast-marquee";
 import "./Header.css";
-import Menubar from "../Menubar/Menubar";
 
 const Header = () => {
   return (
@@ -31,7 +30,6 @@ const Header = () => {
           just some text......
         </Marquee>
       </div>
-      <Menubar />
     </Container>
   );
 };

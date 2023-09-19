@@ -1,0 +1,21 @@
+.header-text{
+    color: #403F3F;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+/* Default styles for small devices (full width) */
+.card-body {
+  width: 100%;
+}
+
+/* Media query for large devices (e.g., screens wider than 768px) */
+@media (min-width: 768px) {
+  .card-body {
+    width: 400px;
+    margin-top: 3rem;
+  }
+}

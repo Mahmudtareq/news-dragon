@@ -11,7 +11,7 @@ import { GrFormView } from "react-icons/gr";
 const NewsCard = ({ newsItem }) => {
   const { _id, total_view, title, details, image_url, author, rating } =
     newsItem;
-  console.log(newsItem);
+  
   return (
     <Card className="mb-5 mt-4">
       <Card.Header className="d-flex align-items-center justify-content-between">
@@ -34,10 +34,10 @@ const NewsCard = ({ newsItem }) => {
           </span>
         </div>
       </Card.Header>
-      <Card.Body>
+      <Card.Body className="w-100  m-0">
         <Card.Title>{title}</Card.Title>
         <Card.Img variant="top" src={image_url} className="my-3" />
-        <Card.Text>
+        <Card.Text className="text-justify">
           {details.length < 250 ? (
             <>{details}</>
           ) : (

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Container, ListGroup } from "react-bootstrap";
 import {
   FaGoogle,
@@ -10,8 +10,21 @@ import {
 } from "react-icons/fa";
 import QZone from "../Qzone/QZone";
 import "./RightSidebar.css";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import toast from "react-hot-toast";
 
 const RightSidebar = () => {
+  const { googleLoginUser } = useContext(AuthContext);
+  const handleGoogleLogin = () => {
+    googleLoginUser()
+      .then((result) => {
+        const googleUser = result.user;
+        toast("user login successfully");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <Container className="my-4">
       <div className="mb-8">
@@ -20,6 +33,7 @@ const RightSidebar = () => {
           <Button
             className="d-flex align-items-center justify-content-center"
             variant="outline-primary"
+            onClick={handleGoogleLogin}
           >
             <FaGoogle className="me-2" />
             Login With Google

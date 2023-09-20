@@ -31,7 +31,7 @@ const SportsNews = () => {
           <Col key={idx}>
             <Card>
               <Card.Img variant="top" src={item.img} />
-              <Card.Body>
+              <Card.Body className="w-100 m-0">
                 <Card.Title className="fs-5 text-justify">
                   {item.title}
                 </Card.Title>

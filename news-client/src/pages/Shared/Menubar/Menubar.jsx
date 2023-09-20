@@ -4,10 +4,22 @@ import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { FaUserCircle } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const Menubar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
+  const handleLogout = () => {
+    logout()
+      .then((result) => {
+        toast("Logout Successfully");
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary my-4">
       <Container>
@@ -37,7 +49,10 @@ const Menubar = () => {
               <span>
                 <FaUserCircle className="fs-2" />
               </span>
-              <Button variant="secondary">Logout</Button>
+              <span>{user.displayName?.slice(0, 6)}</span>
+              <Button variant="secondary" onClick={handleLogout}>
+                Logout
+              </Button>
             </div>
           ) : (
             <Link

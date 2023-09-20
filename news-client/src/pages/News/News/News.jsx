@@ -15,9 +15,9 @@ const News = () => {
           className="img-fluid p-lg-4 p-2"
           src={image_url}
         />
-        <Card.Body>
+        <Card.Body className="w-100">
           <Card.Title>{title}</Card.Title>
-          <Card.Text>{details}</Card.Text>
+          <Card.Text className="text-justify">{details}</Card.Text>
           <Link to={`/category/${category_id}`}>
             <Button variant="danger">
               {" "}

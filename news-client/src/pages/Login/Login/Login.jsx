@@ -21,6 +21,7 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         const loginUser = result.user;
+        console.log(loginUser)
         toast("Login Successfully");
         form.reset();
         navigate(gotoLocation, { replace: true });

@@ -6,9 +6,11 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendEmailVerification,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import firebaseApp from "./../firebase/firebase.config";
 export const AuthContext = createContext(null);
@@ -30,6 +32,12 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
+  const updateUserProfile = (user, name, photo) => {
+    return updateProfile(user, name, photo);
+  };
+  const emailVerification = (user) => {
+    return sendEmailVerification(user);
+  };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
       setUser(loggedUser);
@@ -50,6 +58,8 @@ const AuthProvider = ({ children }) => {
     signInUser,
     logout,
     loading,
+    updateUserProfile,
+    emailVerification,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

@@ -8,7 +8,8 @@ import toast from "react-hot-toast";
 
 const Register = () => {
   const [accepted, setAccepted] = useState(false);
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile, emailVerification } =
+    useContext(AuthContext);
 
   const navigate = useNavigate();
   // create new user
@@ -23,7 +24,10 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const newUser = result.user;
+        userUpdate(newUser, name, photo);
+        sendEmailVerification(result.user);
         toast("user create successfully");
+        console.log(newUser);
         form.reset();
         navigate("/login");
       })
@@ -34,6 +38,27 @@ const Register = () => {
   const handleAccepted = (e) => {
     setAccepted(e.target.checked);
   };
+  const userUpdate = (user, name, photo) => {
+    updateUserProfile(user, {
+      displayName: name,
+      photoURL: photo,
+    })
+      .then((result) => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const sendEmailVerification = (user) => {
+    emailVerification(user)
+      .then((result) => {
+        const userEmail = result.user;
+        console.log(userEmail);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <div className="mx-auto card-body shadow-sm p-4">
       <h4 className="header-text">Register your account</h4>

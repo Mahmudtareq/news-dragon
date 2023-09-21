@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Image, Nav, Navbar } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { FaUserCircle } from "react-icons/fa";
@@ -45,11 +45,21 @@ const Menubar = () => {
         </Navbar.Collapse>
         <Nav className="ms-auto">
           {user ? (
-            <div className="d-flex gap-2 align-items-center">
+            <div className="d-flex gap-3 align-items-center">
               <span>
-                <FaUserCircle className="fs-2" />
+                {user.photoURL  ? (
+                  <Image
+                    src={user.photoURL}
+                    width={40}
+                    height={40}
+                    roundedCircle
+                  />
+                ) : (
+                  <FaUserCircle className="fs-2" />
+                )}
               </span>
-              <span>{user.displayName?.slice(0, 6)}</span>
+              {user.displayName && <span>{user.displayName?.slice(0, 6)}</span>}
+
               <Button variant="secondary" onClick={handleLogout}>
                 Logout
               </Button>
